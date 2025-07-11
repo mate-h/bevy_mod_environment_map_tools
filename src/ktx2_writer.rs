@@ -12,11 +12,7 @@ impl<'a> KTX2Writer<'a> {
         writer.write_all(
             &ktx2::Header {
                 format: self.header.format,
-                type_size: if self.header.supercompression_scheme.is_some() {
-                    1
-                } else {
-                    self.header.type_size
-                },
+                type_size: self.header.type_size,
                 pixel_width: self.header.pixel_width,
                 pixel_height: self.header.pixel_height,
                 pixel_depth: self.header.pixel_depth,
